@@ -25,4 +25,4 @@ def image_search(query: str) -> str:
         print(f"Image search error: {e}")
     
     # Return a default placeholder if search fails
-    return "https://via.placeholder.com/300x450?text=No+Poster+Found"
+    return "https://placehold.co/300x450?text=No+Poster+Found"

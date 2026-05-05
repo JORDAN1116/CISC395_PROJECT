@@ -34,5 +34,14 @@
         "notes": "Movie with action packed combat",
         "image_url": "",
         "id": "53b58821-20e0-4e51-90ee-4f6daf69ae8a"
+    },
+    {
+        "title": "Mario Galaxy",
+        "genre": "Unknown",
+        "rating": 5.0,
+        "watched": false,
+        "notes": "In a whimsical adventure across countless planets, Mario embarks on a daring quest to rescue Princess Peach from the mischievous Bowser, hopping through gravity\u2011defying realms and wielding power\u2011up transformations to restore peace to the Mushroom Kingdom. Along the way, his courage and friendship turn every celestial challenge into a vibrant, heart\u2011pounding spectacle.",
+        "image_url": "https://i.etsystatic.com/63063445/r/il/a36a4a/7505700929/il_600x600.7505700929_ht2x.jpg",
+        "id": "b483edf6-aa91-4939-8bd7-3345c7d9274f"
     }
 ]
