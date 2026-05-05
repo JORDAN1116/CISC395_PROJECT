@@ -3,27 +3,36 @@
         "title": "Fight Club",
         "genre": "Action",
         "rating": 5.0,
-        "watched": false,
-        "notes": "",
+        "watched": true,
+        "notes": "Movie with action packed combat",
         "image_url": "",
-        "id": null
+        "id": "e692bb49-5ef5-4301-a97c-ca54cf4f5a19"
     },
     {
         "title": "Scream",
         "genre": "Horror",
         "rating": 4.0,
         "watched": false,
-        "notes": "",
+        "notes": "Movie with tense scenes",
         "image_url": "",
-        "id": null
+        "id": "88714cbc-9498-469b-a0c5-2ed4753f3398"
     },
     {
         "title": "Michael Jackson",
         "genre": "Bio-pic",
         "rating": 5.0,
         "watched": false,
-        "notes": "",
+        "notes": "Movie with amazing music",
         "image_url": "",
-        "id": null
+        "id": "d3970e71-ec4f-48f9-8b8e-62a2f247d232"
+    },
+    {
+        "title": "Fight Club",
+        "genre": "Action",
+        "rating": 5.0,
+        "watched": false,
+        "notes": "Movie with action packed combat",
+        "image_url": "",
+        "id": "53b58821-20e0-4e51-90ee-4f6daf69ae8a"
     }
 ]

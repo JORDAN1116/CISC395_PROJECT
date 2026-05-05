@@ -80,6 +80,16 @@ else:
                     m.watched = True
                     persist()
                     st.rerun()
+            with st.expander("📝 Edit Notes", expanded=False):
+                new_note = st.text_area("Your Thoughts", value=m.notes, height=100, key=f"ta_{m.id}_{idx}", label_visibility="collapsed")
+                if st.button("Save", key=f"save_{m.id}_{idx}", use_container_width=True):
+                    m.notes = new_note
+                    if m.id is None:
+                        import uuid
+                        m.id = str(uuid.uuid4())
+                    st.session_state.rag.index_movie(m.id, new_note, {"title": m.title})
+                    persist()
+                    st.rerun()
 
 # --- Main Area ---
 tab1, tab2, tab3 = st.tabs(["💬 Cinephile Chat", "🔍 Discovery", "🧠 Search My Thoughts"])
