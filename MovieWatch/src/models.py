@@ -1,3 +1,4 @@
+import random
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 
@@ -39,6 +40,16 @@ class Watchlist:
             if m.title.lower() == title.lower():
                 return m
         return None
+
+    def random_pick(self) -> Optional[Movie]:
+        """Randomly pick a movie from the watchlist."""
+        if not self.movies:
+            return None
+        return random.choice(self.movies)
+
+    def search_by_rating(self, min_rating: float) -> List[Movie]:
+        """Search for movies with a rating greater than or equal to min_rating."""
+        return [m for m in self.movies if m.rating >= min_rating]
 
     def clear(self):
         self.movies = []

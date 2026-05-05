@@ -2,7 +2,8 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 import os
 
-DB_PATH = "MovieWatch/chroma_db"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "chroma_db")
 COLLECTION_NAME = "movie_notes"
 
 class RAGEngine:
@@ -28,7 +29,7 @@ class RAGEngine:
     def search_notes(self, query: str, n_results: int = 3):
         """Searches movie notes semantically."""
         if self.collection.count() == 0:
-            return []
+            return {"documents": [], "metadatas": []}
             
         query_embedding = self.model.encode(query).tolist()
         results = self.collection.query(

@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Fight Club",
+        "genre": "Action",
+        "rating": 5.0,
+        "watched": false,
+        "notes": "",
+        "image_url": "",
+        "id": null
+    },
+    {
+        "title": "Scream",
+        "genre": "Horror",
+        "rating": 4.0,
+        "watched": false,
+        "notes": "",
+        "image_url": "",
+        "id": null
+    },
+    {
+        "title": "Michael Jackson",
+        "genre": "Bio-pic",
+        "rating": 5.0,
+        "watched": false,
+        "notes": "",
+        "image_url": "",
+        "id": null
+    }
+]

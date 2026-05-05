@@ -1,0 +1,6 @@
+streamlit
+openai
+duckduckgo-search
+chromadb
+sentence-transformers
+python-dotenv
