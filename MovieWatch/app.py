@@ -35,7 +35,7 @@ with st.sidebar.expander("➕ Add New Movie", expanded=False):
                 poster_url = image_search(new_title)
                 # Get AI Details (Genre and simplified Rating)
                 import json
-                details = ask_ai(f"Return ONLY valid JSON for the movie '{new_title}'. Format: {{\\"genre\\": \\"...\\", \\"rating\\": 8.5}}")
+                details = ask_ai(f'Return ONLY valid JSON for the movie "{new_title}". Format: {{"genre": "...", "rating": 8.5}}')
                 try:
                     data = json.loads(details)
                     genre = data.get("genre", "Unknown")
