@@ -45,6 +45,7 @@ class Watchlist:
 
     def random_pick(self) -> Optional[Movie]:
         """Randomly pick a movie from the watchlist."""
+        import random
         if not self.movies:
             return None
         return random.choice(self.movies)
