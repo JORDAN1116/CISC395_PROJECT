@@ -1,4 +1,4 @@
-import random
+import uuid
 from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 
@@ -10,13 +10,15 @@ class Movie:
     watched: bool = False
     notes: str = ""
     image_url: str = ""
-    id: Optional[str] = None
+    id: str = field(default_factory=lambda: str(uuid.uuid4()))
 
     def to_dict(self):
         return asdict(self)
 
     @classmethod
     def from_dict(cls, data):
+        if not data.get("id"):
+            data["id"] = str(uuid.uuid4())
         return cls(**data)
 
 class Watchlist:

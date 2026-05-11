@@ -34,11 +34,13 @@ with st.sidebar.expander("➕ Add New Movie", expanded=False):
                 # Get Image
                 poster_url = image_search(new_title)
                 # Get AI Details (Genre and simplified Rating)
-                details = ask_ai(f"Return ONLY the genre and a numeric rating (0-10) for the movie '{new_title}'. Format: Genre | Rating")
+                import json
+                details = ask_ai(f"Return ONLY valid JSON for the movie '{new_title}'. Format: {{\\"genre\\": \\"...\\", \\"rating\\": 8.5}}")
                 try:
-                    genre, rating = details.split("|")
-                    rating = float(rating.strip())
-                except:
+                    data = json.loads(details)
+                    genre = data.get("genre", "Unknown")
+                    rating = float(data.get("rating", 5.0))
+                except (json.JSONDecodeError, ValueError):
                     genre, rating = "Unknown", 5.0
                 
                 # Get AI Summary for Notes
@@ -49,8 +51,7 @@ with st.sidebar.expander("➕ Add New Movie", expanded=False):
                     genre=genre.strip(),
                     rating=rating,
                     image_url=poster_url,
-                    notes=summary,
-                    id=str(uuid.uuid4())
+                    notes=summary
                 )
                 st.session_state.watchlist.add_movie(new_movie)
                 # Index in RAG
@@ -84,9 +85,6 @@ else:
                 new_note = st.text_area("Your Thoughts", value=m.notes, height=100, key=f"ta_{m.id}_{idx}", label_visibility="collapsed")
                 if st.button("Save", key=f"save_{m.id}_{idx}", use_container_width=True):
                     m.notes = new_note
-                    if m.id is None:
-                        import uuid
-                        m.id = str(uuid.uuid4())
                     st.session_state.rag.index_movie(m.id, new_note, {"title": m.title})
                     persist()
                     st.rerun()
